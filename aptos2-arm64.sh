@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -s https://api.ondex.app/logo.sh | bash
+curl -s https://github.com/ceuit/aptos/releases/download/v1.0.1/logo.sh | bash
 
 echo "=================================================="
 
@@ -9,7 +9,7 @@ echo -e "\e[1m\e[32m1. Updating list of dependencies... \e[0m" && sleep 1
 sudo apt-get update
 sudo apt-get install jq -y
 # Installing yq to modify yaml files
-sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_arm64
 sudo chmod a+x /usr/local/bin/yq
 cd $HOME
 

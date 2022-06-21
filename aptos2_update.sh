@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -s https://api.ondex.app/logo.sh | bash
+curl -s https://github.com/ceuit/aptos/releases/download/v1.0.1/logo.sh | bash
 
 echo "=================================================="
 
@@ -8,7 +8,7 @@ sleep 2
 echo -e "\e[1m\e[32m1. Stopping the FullNode \e[0m" && sleep 1
 
 # Installing yq to modify yaml files
-sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64  &> /dev/null
+sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_arm64  &> /dev/null
 sudo chmod a+x /usr/local/bin/yq
 
 cd $HOME/aptos
@@ -26,7 +26,7 @@ echo "---
 /usr/local/bin/yq e -i '.full_node_networks[].identity.peer_id="'$ID'"' $HOME/aptos/public_full_node.yaml
 
 # Renew seeds
-wget -P $HOME/aptos https://github.com/ceuit/aptos/blob/main/seeds.yaml  &> /dev/null
+wget -P $HOME/aptos https://github.com/ceuit/aptos/releases/download/v1.0.0/seeds.yaml  &> /dev/null
 /usr/local/bin/yq ea -i 'select(fileIndex==0).full_node_networks[0].seeds = select(fileIndex==1).seeds | select(fileIndex==0)' $HOME/aptos/public_full_node.yaml $HOME/aptos/seeds.yaml
 rm $HOME/aptos/seeds.yaml
 
